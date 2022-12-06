@@ -16,5 +16,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CustomerShareList {
    
-    List<CustomerShareList> customerShares;
+    List<CustomerShare> customerShares;
 }

@@ -36,7 +36,7 @@ public class CustomerDetailController {
         ModelAndView mav = new ModelAndView();
         
         // CREATE LIST : CustomerShare entity - call service to get current customer
-        List<CustomerShare> customerDetailList = service.getCustomerDetailByCustomerId(customerId);
+        List<CustomerShare> customerDetailList = service.getCustomerShareByCustomerId(customerId);
         
         // SET OBJECT TO MAP DETAILS & OBJECT TO DISPLAY CUSTOMER ID - displays on ShowStocks 
         mav.addObject("customerDetails", customerDetailList);

@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = "com.six")
 @EntityScan(basePackages = "com.six.entity")
 @EnableJpaRepositories(basePackages = "com.six.persistence")
-public class DemoApplication {
+public class ShareServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(ShareServiceApplication.class, args);
 	}
 
 }

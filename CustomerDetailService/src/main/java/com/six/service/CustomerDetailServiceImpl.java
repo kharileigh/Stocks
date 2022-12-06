@@ -27,27 +27,29 @@ public class CustomerDetailServiceImpl implements CustomerDetailService {
     public List<CustomerShare> getCustomerShareByCustomerId(int customerId) {
         
         // CREATE LIST : CustomerShare entity 
-        List<CustomerShare> customerDetailsList = new ArrayList<CustomerShare>();
+        List<CustomerShare> customerShareList = new ArrayList<CustomerShare>();
         
         // CALL CUSTOMER SERVICE : GET - List of Customers, store in customers
-        CustomerList customerList = restTemplate.getForObject("" + customerId, CustomerList.class);
+        List<CustomerList> customerList = restTemplate.getForObject("http://localhost:8083/customers/" + customerId, CustomerList.class);
         
         // ITERATE OVER CUSTOMERS : GET - shares
-        for(Customer customer : customerList.getCustomers()) {
+        for(Customer customer : customerList.) {
         
             // CALL SHARE SERVICE : GET - shareId
-            Share share = restTemplate.getForObject("" + customer.getShareId(), Share.class);
+            Share share = restTemplate.getForObject("http://localhost:8010/shares/" + customer.getShareId(), Share.class);
         
             // INSTANTIATE OBJECT : CustomerShare entity (OUTPUT DETAILS)
             // customerId - shareName - quantity - unitPrice - totalValuation - shareType
             CustomerShare customerDetail = new CustomerShare(customer.getCustomerId(), share.getShareName(), customer.getQuantity(), share.getMarketPrice(), (share.getMarketPrice() * customer.getQuantity()), customer.getShareType());
             
             // ADD CUSTOMER DETAIL OBJECT - LIST OF CUSTOMER DETAILS ENTITY
-            customerDetailsList.add(customerDetail);
+            customerShareList.add(customerDetail);
         }
         
-        return customerDetailsList;
+        return customerShareList;
     }
+
+   
     
     
 }

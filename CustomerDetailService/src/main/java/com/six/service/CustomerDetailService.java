@@ -1,6 +1,7 @@
 package com.six.service;
 
 
+import com.six.entity.Customer;
 import com.six.entity.CustomerShare;
 import java.util.List;
 
@@ -12,8 +13,9 @@ import java.util.List;
 
 
 public interface CustomerDetailService {
+   
     
     // INPUT : customerId
     // OUTPUT : customerId, shareName, quantity, unitPrice, totalValuation, shareType
-    List<CustomerShare> getCustomerShareByCustomerId(int customerId);
+    public List<CustomerShare> getCustomerShareByCustomerId(int customerId);
 }

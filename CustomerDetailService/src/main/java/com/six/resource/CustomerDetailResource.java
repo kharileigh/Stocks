@@ -22,9 +22,10 @@ public class CustomerDetailResource {
     private CustomerDetailService service;
     
     // GET OPERATION 
-    @GetMapping(path="", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CustomerShareList getCustomerShareList(@PathVariable("customerId") int customerId) {
+    @GetMapping(path="/customers/{cid}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CustomerShareList getCustomerShareList(@PathVariable("cid") int customerId) {
     
         return new CustomerShareList(service.getCustomerShareByCustomerId(customerId));
+        
     }
 }
