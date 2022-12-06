@@ -6,7 +6,7 @@
 
 package com.six.resource;
 
-import com.six.entity.CustomerDetailList;
+import com.six.entity.CustomerShareList;
 import com.six.service.CustomerDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,12 +19,12 @@ public class CustomerDetailResource {
     
     // INJECT DEPENDENCY : Customer Detail Service
     @Autowired
-    private CustomerDetailService customerDetailService;
+    private CustomerDetailService service;
     
     // GET OPERATION 
     @GetMapping(path="", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CustomerDetailList getCustomerDetailByCustomerIdResource(@PathVariable("customerId") int customerId) {
+    public CustomerShareList getCustomerShareList(@PathVariable("customerId") int customerId) {
     
-        return new CustomerDetailList(customerDetailService.getCustomerDetailByCustomerId(customerId));
+        return new CustomerShareList(service.getCustomerShareByCustomerId(customerId));
     }
 }

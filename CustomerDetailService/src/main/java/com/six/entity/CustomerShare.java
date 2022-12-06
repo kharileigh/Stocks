@@ -15,7 +15,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CustomerDetail {
+public class CustomerShare {
     
     private int customerId;
     private String shareName;

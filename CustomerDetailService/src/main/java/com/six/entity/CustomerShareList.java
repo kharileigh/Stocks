@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerDetailList {
+public class CustomerShareList {
    
-    List<CustomerDetailList> customerShares;
+    List<CustomerShareList> customerShares;
 }

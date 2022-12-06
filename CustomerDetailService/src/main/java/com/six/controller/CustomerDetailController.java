@@ -6,7 +6,7 @@
 
 package com.six.controller;
 
-import com.six.entity.CustomerDetail;
+import com.six.entity.CustomerShare;
 import com.six.service.CustomerDetailService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,8 @@ public class CustomerDetailController {
     
         ModelAndView mav = new ModelAndView();
         
-        // CREATE LIST : CustomerDetail entity - call service to get current customer
-        List<CustomerDetail> customerDetailList = service.getCustomerDetailByCustomerId(customerId);
+        // CREATE LIST : CustomerShare entity - call service to get current customer
+        List<CustomerShare> customerDetailList = service.getCustomerDetailByCustomerId(customerId);
         
         // SET OBJECT TO MAP DETAILS & OBJECT TO DISPLAY CUSTOMER ID - displays on ShowStocks 
         mav.addObject("customerDetails", customerDetailList);

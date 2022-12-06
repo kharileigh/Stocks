@@ -7,7 +7,7 @@
 package com.six.service;
 
 import com.six.entity.Customer;
-import com.six.entity.CustomerDetail;
+import com.six.entity.CustomerShare;
 import com.six.entity.CustomerList;
 import com.six.entity.Share;
 import java.util.ArrayList;
@@ -24,10 +24,10 @@ public class CustomerDetailServiceImpl implements CustomerDetailService {
     private RestTemplate restTemplate;
     
     @Override
-    public List<CustomerDetail> getCustomerDetailByCustomerId(int customerId) {
+    public List<CustomerShare> getCustomerShareByCustomerId(int customerId) {
         
-        // CREATE LIST : CustomerDetail entity 
-        List<CustomerDetail> customerDetailsList = new ArrayList<CustomerDetail>();
+        // CREATE LIST : CustomerShare entity 
+        List<CustomerShare> customerDetailsList = new ArrayList<CustomerShare>();
         
         // CALL CUSTOMER SERVICE : GET - List of Customers, store in customers
         CustomerList customerList = restTemplate.getForObject("" + customerId, CustomerList.class);
@@ -37,15 +37,10 @@ public class CustomerDetailServiceImpl implements CustomerDetailService {
         
             // CALL SHARE SERVICE : GET - shareId
             Share share = restTemplate.getForObject("" + customer.getShareId(), Share.class);
-            
-            
-            String shareName = share.getShareName();
-            double unitPrice = share.getMarketPrice();
-            double totalValuation = unitPrice * customer.getQuantity();
         
-            // INSTANTIATE OBJECT : CustomerDetail entity (OUTPUT DETAILS)
+            // INSTANTIATE OBJECT : CustomerShare entity (OUTPUT DETAILS)
             // customerId - shareName - quantity - unitPrice - totalValuation - shareType
-            CustomerDetail customerDetail = new CustomerDetail(customer.getCustomerId(), shareName, customer.getQuantity(), unitPrice, totalValuation, customer.getShareType());
+            CustomerShare customerDetail = new CustomerShare(customer.getCustomerId(), share.getShareName(), customer.getQuantity(), share.getMarketPrice(), (share.getMarketPrice() * customer.getQuantity()), customer.getShareType());
             
             // ADD CUSTOMER DETAIL OBJECT - LIST OF CUSTOMER DETAILS ENTITY
             customerDetailsList.add(customerDetail);
