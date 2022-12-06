@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.six</groupId>
-	<artifactId>CustomerShareService</artifactId>
+	<artifactId>CustomerDetailService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>CustomerShareService</name>
+	<name>CustomerDetailService</name>
 	<description>Spring MVC with Spring Boot - Lidija, Leah, Khari</description>
 	<properties>
 		<java.version>11</java.version>
