@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<title>supply a title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <h1>Stocks Online</h1>
+    <br><br>
+    <h2 th:text="'Stocks for Customer : ' + ${customerId"></h2>
+    
+    <table border="1">
+        
+        <tr>
+            <!<!-- OUTPUT INFORMATION -->
+            <th> Customer ID </th>
+            <th>Share Name </th>
+            <th> Share Type </th>
+            <th> Quantity </th>
+            <th> Unit Price </th>
+            <th> Total Valuation </th>
+        </tr>
+            
+        <!<!-- MAP OBJECT TO RELEVANT CELLS -->
+        <tr th:each="customerDetail : ${customerDetails}">
+            
+            <td th:text="${customerDetail.customerId}"></td>
+            <td th:text="${customerDetail.shareName}"></td>
+            <td th:text="${customerDetail.shareType}"></td>
+            <td th:text="${customerDetail.quantity}"></td>
+            <td th:text="${customerDetail.unitPrice}"></td>
+            <td th:text="${customerDetail.totalValuation}"></td>
+            
+        </tr>
+
+    </table>
+
+</body>
+
+</html>
