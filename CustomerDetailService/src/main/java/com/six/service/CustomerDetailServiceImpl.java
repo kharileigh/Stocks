@@ -27,7 +27,7 @@ public class CustomerDetailServiceImpl implements CustomerDetailService {
     public List<CustomerDetail> getCustomerDetailByCustomerId(int customerId) {
         
         // CREATE LIST : CustomerDetail entity 
-        List<CustomerDetail> customerDetails = new ArrayList<CustomerDetail>();
+        List<CustomerDetail> customerDetailsList = new ArrayList<CustomerDetail>();
         
         // CALL CUSTOMER SERVICE : GET - List of Customers, store in customers
         CustomerList customerList = restTemplate.getForObject("" + customerId, CustomerList.class);
@@ -47,11 +47,11 @@ public class CustomerDetailServiceImpl implements CustomerDetailService {
             // customerId - shareName - quantity - unitPrice - totalValuation - shareType
             CustomerDetail customerDetail = new CustomerDetail(customer.getCustomerId(), shareName, customer.getQuantity(), unitPrice, totalValuation, customer.getShareType());
             
-            // ADD CUSTOMER DETAIL OBJECT TO LIST OF CUSTOMERS
-            customerList.add(customerDetail);
+            // ADD CUSTOMER DETAIL OBJECT - LIST OF CUSTOMER DETAILS ENTITY
+            customerDetailsList.add(customerDetail);
         }
         
-        return customerList;
+        return customerDetailsList;
     }
     
     
